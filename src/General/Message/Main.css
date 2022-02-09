@@ -1,0 +1,43 @@
+:root {
+    --error: #fa6464;
+    --success: #64fa98;
+}
+
+#Popup {
+    font-size: 0.8rem;
+    padding: 0.5em;
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    position: absolute;
+    z-index: 2;
+    top: 5em;
+    left: -30em;
+    animation: MessagePopup 5s;
+}
+
+.Error {
+   background-color: var(--error); 
+}
+
+.Success {
+    background-color: var(--success); 
+}
+
+#Message {
+    margin: 0
+}
+
+@keyframes MessagePopup {
+    0% {
+        left: -30em;
+    }
+    20% {
+        left: 0
+    }
+    60% {
+        left: 0
+    }
+    100% {
+        left: -30em;
+    }
+}

@@ -1,26 +1,33 @@
-import React from 'react';
+import React, { MouseEvent, ReactElement, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Status, User } from './General/User/User'
 
 function App() {
+  const [message, setMessage] = React.useState<ReactElement>()
+
+  const click = (e: MouseEvent) => {
+    const user = {
+      UserID: 1,
+      Email: "",
+      Name: "",
+      Password: '',
+      Salt: undefined,
+      Status: Status.Online
+    }
+    const newuser = new User()
+    console.log(newuser.setEmail('netoruben@gmail.com'))
+  }
+
   return (
     <div className="App">
       <header className="App-header">
+        {message}
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p onClick={click}>Click</p>
       </header>
     </div>
-  );
+  )
 }
 
 export default App;
