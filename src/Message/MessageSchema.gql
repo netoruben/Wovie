@@ -1,0 +1,7 @@
+type Error {
+  Message: String!
+}
+
+type Success {
+  Message: String!
+}

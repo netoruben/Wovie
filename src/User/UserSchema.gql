@@ -1,0 +1,54 @@
+# import * from '../Message/MessageSchema.gql'
+
+scalar DateTime
+
+enum UserStatus {
+    Online
+    Idle
+    Offline
+}
+
+enum UserPermissions {
+    User
+    Admin
+}
+
+type User {
+  UserID: ID!
+  Email: String!
+  Name: String!
+  Password: String!
+  Status: UserStatus!
+  Permissions: UserPermissions!
+  JoinedWhen: DateTime!
+  UpdatedWhen: DateTime!
+}
+
+type Users {
+  Users: [User!]!
+}
+
+union allUsersResponse = Users | Error
+
+input loginUserInput {
+  Email: String!
+  Password: String!
+}
+
+type Query {
+  loginUser(User: loginUserInput): UserResponse!
+  allUsers: allUsersResponse!
+  logout: Success
+}
+
+input createUserInput {
+  Email: String!
+  Name: String!
+  Password: String!
+}
+
+union UserResponse = User | Error
+
+type Mutation {
+  createUser(User: createUserInput!): UserResponse!
+}

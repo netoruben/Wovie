@@ -11,7 +11,7 @@
     position: absolute;
     z-index: 2;
     top: 5em;
-    left: -30em;
+    left: -50em;
     animation: MessagePopup 5s;
 }
 
@@ -29,7 +29,7 @@
 
 @keyframes MessagePopup {
     0% {
-        left: -30em;
+        left: -50em;
     }
     20% {
         left: 0
@@ -38,6 +38,6 @@
         left: 0
     }
     100% {
-        left: -30em;
+        left: -50em;
     }
 }
